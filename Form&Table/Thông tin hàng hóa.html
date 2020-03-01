@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Thông tin hàng hóa</title>
 </head>
 <body>
+<form action="#" method="post">
+  <fieldset>
+    <legend>Thông tin sản phẩm: </legend>
+    Ảnh sản phẩm: <input type="file" name="files" multiple><br>
+    <label for="pn">Tên sản phẩm: </label>
+    <input type="text" name="pn" id="pn"><br>
+    Loại sản phẩm: <select>
+    <option value="clothes" selected>Quần áo</option>
+    <option value="shoes">Giày dép</option>
+    <option value="others">Khác</option>
+</select><br>
+    Size: <select>
+    <option value="xs">XS</option>
+    <option value="s">S</option>
+    <option value="m">M</option>
+    <option value="l">L</option>
+    <option value="xl">XL</option>
+</select><br>
+    Tình trạng sản phẩm:
+    <label><input type="radio" name="condition" value="new">Mới</label>
+    <label><input type="radio" name="condition" value="used">Đã qua sử dụng</label><br>
+    Hình thức có thể thanh toán:
+      <label><input type="checkbox" name="payment" value="cod">COD</label>
+      <label><input type="checkbox" name="payment" value="bank">Chuyển khoản</label>
+      <label><input type="checkbox" name="payment" value="credit">Thẻ thanh toán quốc tế</label>
+    Mô tả thêm:<br> <textarea name="decription" rows="10" cols="30"></textarea>
+  </fieldset>
+  <fieldset>
+      <legend>Thông tin đăng nhập</legend>
+      Tên đăng nhập:<input type="text" name="username"><br><br>
+      Mật khẩu:&emsp;&emsp;&nbsp;<input type="password" name="password"><br><br>
+      <input type="submit" value="Đăng nhập">&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="button" value="Đăng ký" onclick="alert('Không thể đăng ký :P')">
+  </fieldset>
+</form>
 
 </body>
 </html>
