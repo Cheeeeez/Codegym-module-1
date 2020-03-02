@@ -3,46 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <title>Thông tin hàng hóa</title>
+    <style>
+        #myForm{
+            display: none;
+        }
+
+    </style>
+    <script>
+        function showForm() {
+            document.getElementById("myForm").style.display = "block";
+
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+
+        }
+    </script>
 </head>
 <body>
-<form action="#" method="post">
+<form action="#" method="post" id="myForm">
   <fieldset>
     <legend>THÔNG TIN ĐƠN HÀNG: </legend>
-    Ảnh sản phẩm: <input type="file" name="files" multiple><br>
-    <label for="pn">Tên sản phẩm: </label>
-    <input type="text" name="pn" id="pn"><br>
-    Loại sản phẩm: <select>
-    <option value="clothes" selected>Quần áo</option>
-    <option value="shoes">Giày dép</option>
-    <option value="others">Khác</option>
-</select><br>
-    Size: <select>
-    <option value="xs">XS</option>
-    <option value="s">S</option>
-    <option value="m">M</option>
-    <option value="l">L</option>
-    <option value="xl">XL</option>
-</select><br>
-    Tình trạng sản phẩm:
-    <label><input type="radio" name="condition" value="new">Mới</label>
-    <label><input type="radio" name="condition" value="used">Đã qua sử dụng</label><br>
-    Hình thức có thể thanh toán:
-      <label><input type="checkbox" name="payment" value="cod">COD</label>
-      <label><input type="checkbox" name="payment" value="bank">Chuyển khoản</label>
-      <label><input type="checkbox" name="payment" value="credit">Thẻ thanh toán quốc tế</label><br>
-      <label>Ngày có thể xuất hàng:</label>
-      <input type="date" name="ns"><br>
-    Mô tả thêm:<br> <textarea name="decription" rows="10" cols="30"></textarea><br>
-      <input type="hidden" name="secret" value="123456789"><br>
-      <input type="submit" value="Gửi">
-      <input type="reset" value="Nhập lại">
+    <table cellpadding="10">
+        <tr>
+            <td>Ảnh sản phẩm:</td>
+            <td><input type="file" name="files" multiple><br></td>
+        </tr>
+        <tr>
+            <td><label for="pn">Tên sản phẩm: </label></td>
+            <td><input type="text" name="pn" id="pn"><br></td>
+        </tr>
+        <tr>
+            <td>Loại sản phẩm:</td>
+            <td><select>
+                <option value="clothes" selected>Quần áo</option>
+                <option value="shoes">Giày dép</option>
+                <option value="others">Khác</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Size:</td>
+            <td><select>
+                <option value="xs">XS</option>
+                <option value="s">S</option>
+                <option value="m">M</option>
+                <option value="l">L</option>
+                <option value="xl">XL</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+           <td> Tình trạng sản phẩm:</td>
+           <td><label><input type="radio" name="condition" value="new">Mới</label>
+               <label><input type="radio" name="condition" value="used">Đã qua sử dụng</label><br>
+           </td>
+        </tr>
+        <tr>
+            <td>Hình thức có thể thanh toán:</td>
+            <td>
+                <label><input type="checkbox" name="payment" value="cod">COD</label>
+                <label><input type="checkbox" name="payment" value="bank">Chuyển khoản</label>
+                <label><input type="checkbox" name="payment" value="credit">Thẻ thanh toán quốc tế</label><br>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Ngày có thể xuất hàng:</label></td>
+            <td><input type="date" name="ns"><br></td>
+        </tr>
+        <tr>
+            <td valign="top">Mô tả thêm:</td>
+            <td><textarea name="decription" rows="5" cols="20"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="hidden" name="secret" value="123456789"><br>
+                <input type="submit" value="Gửi">
+                <input type="reset" value="Nhập lại">
+                <input type="button" value="Đóng" onclick="closeForm()">
+            </td>
+        </tr>
+    </table>
+
+
   </fieldset>
+</form>
+<button onclick="showForm()">Đăng bán</button><br>
+<form>
   <fieldset>
       <legend>Thông tin đăng nhập</legend>
-      Tên đăng nhập:<input type="text" name="username" placeholder="Tên đăng nhập"><br><br>
-      Mật khẩu:&emsp;&emsp;&nbsp;<input type="password" name="password" placeholder="Mật khẩu"><br><br>
+      Tên đăng nhập:<input type="text" name="username" id="username" placeholder="Tên đăng nhập"><br><br>
+      Mật khẩu:&emsp;&emsp;&nbsp;<input type="password" name="password" id="password" placeholder="Mật khẩu"><br><br>
       <input type="submit" value="Đăng nhập">&nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="button" value="Đăng ký" onclick="alert('Không thể đăng ký :P')">
+      <input type="button" value="Đăng ký" onclick="alert('Không thể đăng ký lêu lêu')">
   </fieldset>
 </form>
 
