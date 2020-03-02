@@ -16,6 +16,12 @@
         .chuhong {
             color: coral;
         }
+        .bang2 {
+            background-color: #fff980;
+            border: 1px white;
+            margin-left: 500px;
+            margin-right: 500px;
+        }
     </style>
 </head>
 <body>
@@ -52,7 +58,48 @@
             </table>
                 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;<button name="submitform" type="submit">Gửi thông tin</button>
                 <button name="resetform" type="reset">Nhập lại</button>
-
+        </div>
+        <div class="bang2">
+            <h2 style="background-color: lightskyblue;color: mediumblue">ĐĂNG KÝ HỌC VIÊN</h2>
+            <table>
+                <tr>
+                    <td class="chuxanh" width="100">Họ và tên</td>
+                    <td><input type="text" size="40"></td>
+                </tr>
+                <tr>
+                    <td class="chuxanh">Ngày sinh</td>
+                    <td><input type="text" size="15"></td>
+                </tr>
+                <tr>
+                    <td class="chuxanh">Giới tính</td>
+                    <td><input type="radio" name="gender" value="man">Nam<input type="radio" name="gender" value="woman">Nữ</td>
+                </tr>
+                <tr>
+                    <td valign="top" class="chuxanh">Địa chỉ</td>
+                    <td><textarea></textarea></td>
+                </tr>
+                <tr>
+                    <td class="chuxanh">Lớp</td>
+                    <td><select>
+                        <option value="">--Chọn lớp--</option>
+                        <option value="a">A</option>
+                        <option value="b">B</option>
+                    </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="chuxanh">Email</td>
+                    <td><input type="text" name="email"></td>
+                </tr>
+                <tr>
+                    <td class="chuxanh">Điện thoại</td>
+                    <td><input type="text" name="phone"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="submit" name="dk">Đăng ký</button><button type="reset" name="nl">Nhập lại</button></td>
+                </tr>
+            </table>
         </div>
 
 
