@@ -7,7 +7,7 @@
 <body>
 <form action="#" method="post">
   <fieldset>
-    <legend>Thông tin sản phẩm: </legend>
+    <legend>THÔNG TIN ĐƠN HÀNG: </legend>
     Ảnh sản phẩm: <input type="file" name="files" multiple><br>
     <label for="pn">Tên sản phẩm: </label>
     <input type="text" name="pn" id="pn"><br>
@@ -29,13 +29,18 @@
     Hình thức có thể thanh toán:
       <label><input type="checkbox" name="payment" value="cod">COD</label>
       <label><input type="checkbox" name="payment" value="bank">Chuyển khoản</label>
-      <label><input type="checkbox" name="payment" value="credit">Thẻ thanh toán quốc tế</label>
-    Mô tả thêm:<br> <textarea name="decription" rows="10" cols="30"></textarea>
+      <label><input type="checkbox" name="payment" value="credit">Thẻ thanh toán quốc tế</label><br>
+      <label>Ngày có thể xuất hàng:</label>
+      <input type="date" name="ns"><br>
+    Mô tả thêm:<br> <textarea name="decription" rows="10" cols="30"></textarea><br>
+      <input type="hidden" name="secret" value="123456789"><br>
+      <input type="submit" value="Gửi">
+      <input type="reset" value="Nhập lại">
   </fieldset>
   <fieldset>
       <legend>Thông tin đăng nhập</legend>
-      Tên đăng nhập:<input type="text" name="username"><br><br>
-      Mật khẩu:&emsp;&emsp;&nbsp;<input type="password" name="password"><br><br>
+      Tên đăng nhập:<input type="text" name="username" placeholder="Tên đăng nhập"><br><br>
+      Mật khẩu:&emsp;&emsp;&nbsp;<input type="password" name="password" placeholder="Mật khẩu"><br><br>
       <input type="submit" value="Đăng nhập">&nbsp;&nbsp;&nbsp;&nbsp;
       <input type="button" value="Đăng ký" onclick="alert('Không thể đăng ký :P')">
   </fieldset>
