@@ -5,13 +5,24 @@
     <title>Thông tin hàng hóa</title>
     <style>
         #myForm{
-            display: none;
+            display: table;
         }
+        #bang2 {
+           text-align: center;
+        }
+        body {
+            background-image: url("stockx.jpg");
+            background-repeat: no-repeat;
+            background-position: right top;
+
+        }
+
+
 
     </style>
     <script>
         function showForm() {
-            document.getElementById("myForm").style.display = "block";
+            document.getElementById("myForm").style.display = "table";
 
         }
 
@@ -19,20 +30,40 @@
             document.getElementById("myForm").style.display = "none";
 
         }
+        function signUp() {
+            prompt('Tên đăng nhập');
+            prompt('Mật khẩu');
+            prompt('Email');
+            alert('Đăng ký thành công!')
+
+        }
+        function showGift() {
+            document.write('Cú lừa:)');
+        }
+
     </script>
 </head>
-<body>
+<body onload="alert('Welcome to StockX!')">
 <form action="#" method="post" id="myForm">
   <fieldset>
     <legend>THÔNG TIN ĐƠN HÀNG: </legend>
-    <table cellpadding="10">
+      <table id="bang1" cellspacing="5" width="600">
+        <tr>
+            <td><label for="username">Tên đăng nhập:</label></td>
+            <td><input type="text" name="username" id="username" placeholder="Tên đăng nhập" required autofocus autocomplete="off"></td>
+        </tr>
+        <tr>
+            <td><label for="password">Mật khẩu:</label></td>
+            <td><input type="password" name="password" id="password" placeholder="Mật khẩu" required></td>
+        </tr>
+
         <tr>
             <td>Ảnh sản phẩm:</td>
             <td><input type="file" name="files" multiple><br></td>
         </tr>
         <tr>
             <td><label for="pn">Tên sản phẩm: </label></td>
-            <td><input type="text" name="pn" id="pn"><br></td>
+            <td><input type="text" name="pn" id="pn" required><br></td>
         </tr>
         <tr>
             <td>Loại sản phẩm:</td>
@@ -55,6 +86,10 @@
             </td>
         </tr>
         <tr>
+            <td><label for="quantity">Số lượng:</label></td>
+            <td><input type="number" id="quantity" name="quantity" min="1" required></td>
+        </tr>
+        <tr>
            <td> Tình trạng sản phẩm:</td>
            <td><label><input type="radio" name="condition" value="new" checked>Mới</label>
                <label><input type="radio" name="condition" value="used">Đã qua sử dụng</label><br>
@@ -63,25 +98,27 @@
         <tr>
             <td>Hình thức có thể thanh toán:</td>
             <td>
-                <label><input type="checkbox" name="payment" value="cod">COD</label>
+                <label><input type="checkbox" name="payment" value="cod" checked>COD</label>
                 <label><input type="checkbox" name="payment" value="bank">Chuyển khoản</label>
                 <label><input type="checkbox" name="payment" value="credit">Thẻ thanh toán quốc tế</label><br>
             </td>
         </tr>
         <tr>
-            <td><label>Ngày có thể xuất hàng:</label></td>
-            <td><input type="date" name="ns"><br></td>
+            <td><label for="ns">Ngày có thể xuất hàng:</label></td>
+            <td><input type="date" name="ns" id="ns"><br></td>
         </tr>
         <tr>
-            <td valign="top">Mô tả thêm:</td>
-            <td><textarea name="decription" rows="5" cols="20"></textarea></td>
+            <td valign="top"><label for="mtt">Mô tả thêm:</label></td>
+            <td><textarea name="decription" rows="5" cols="20" id="mtt"></textarea></td>
         </tr>
         <tr>
             <td colspan="2">
                 <input type="hidden" name="secret" value="123456789"><br>
-                <input type="submit" value="Gửi">
+                <input type="submit" onclick="confirm('Bạn đã chắc chắn là thông tin chính xác ?')" value="Gửi">
                 <input type="reset" value="Nhập lại">
                 <input type="button" value="Đóng" onclick="closeForm()">
+                <input type="button" onclick="signUp()" value="Đăng ký thành viên">
+                <button type="button" onclick="showGift()">Nhận quà</button>
             </td>
         </tr>
     </table>
@@ -89,15 +126,44 @@
 
   </fieldset>
 </form><br>
-<button onclick="showForm()">Đăng bán</button><br><br>
-<form>
-  <fieldset>
-      Tên đăng nhập:<input type="text" name="username" id="username" placeholder="Tên đăng nhập"><br><br>
-      Mật khẩu:&emsp;&emsp;&nbsp;<input type="password" name="password" id="password" placeholder="Mật khẩu"><br><br>
-      <input type="submit" value="Đăng nhập">&nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="button" value="Đăng ký" onclick="alert('Không thể đăng ký lêu lêu')">
-  </fieldset>
-</form>
+    <button onclick="showForm()">Đăng bán</button>
+    <table border="1" id="bang2">
+        <tr>
+            <th>STT</th>
+            <th>Người bán</th>
+            <th>Tên sản phẩm</th>
+            <th>Loại sản phẩm</th>
+            <th>Size</th>
+            <th>Số lượng</th>
+            <th>Tình trạng</th>
+            <th>Hình thức thanh toán</th>
+            <th>Thao tác</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>AnNV123</td>
+            <td>Áo ba lỗ</td>
+            <td>Quần áo</td>
+            <td>S</td>
+            <td>1</td>
+            <td>Mới</td>
+            <td>COD, Banking</td>
+            <td><button>Sửa</button> <button>Xóa</button></td>
+
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Binhtt123</td>
+            <td>Giày bata</td>
+            <td>Giày dép</td>
+            <td>L</td>
+            <td>1</td>
+            <td>Đã qua sử dụng</td>
+            <td>COD</td>
+            <td><button>Sửa</button> <button>Xóa</button></td>
+        </tr>
+    </table>
 
 </body>
 </html>
+

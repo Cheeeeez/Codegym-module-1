@@ -1,0 +1,38 @@
+*{
+    margin: 0;padding: 0;
+}
+tr td.zero{
+    background: #050505;
+}
+table{
+    width: 600px;
+    height: 600px;
+    margin-left: 415px;
+    background: #f89809;
+    border-collapse: collapse;
+    border-bottom: 10px solid #f89809;
+    border-right: 10px solid #f89809;
+}
+
+
+td.one {
+    background: white;
+}
+
+td.tn,th.tn {
+    background: #f89809;
+    padding: 5px;
+    text-align: center;
+}
+body{
+    text-align: center;
+}
+td {
+    padding: 15px;
+    font-size: 25px;
+}
+
+td.tn {
+    text-align: right;
+}
+
