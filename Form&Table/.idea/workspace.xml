@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94562f47-864c-4db4-8d08-406817823047" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Thông tin hàng hóa.html" beforeDir="false" afterPath="$PROJECT_DIR$/Thông tin hàng hóa.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Practice/.idea/[Thực hành] Sử dụng thẻ HTML cơ bản.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Practice/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Practice/.idea/modules.xml" beforeDir="false" />
@@ -55,7 +53,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583049899445</updated>
-      <workItem from="1583049901199" duration="6708000" />
+      <workItem from="1583049901199" duration="6945000" />
     </task>
     <servers />
   </component>
