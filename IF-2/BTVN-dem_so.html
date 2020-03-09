@@ -60,8 +60,8 @@
                     str += readOneNumber(secondNumber) + " Mươi ";
             case 7 :
                 if (thirdNumber == 0)
-                    str += ""
-                else if (secondNumber == 1 && thirdNumber == 1)
+                    str += " Triệu "
+                else if ((secondNumber == 1 && thirdNumber == 1) || (secondNumber == 0 && thirdNumber == 1))
                     str += " Một Triệu "
                 else if (thirdNumber == 1)
                     str += " Mốt Triệu "
@@ -78,8 +78,8 @@
                     str += readOneNumber(the5thNumber) + " Mươi ";
             case 4 :
                 if (the6thNumber == 0)
-                    str += ""
-                else if (the5thNumber == 1 && the6thNumber == 1)
+                    str += " Nghìn "
+                else if ((the5thNumber == 1 && the6thNumber == 1) || (the5thNumber == 0 && the6thNumber == 1))
                     str += " Một Nghìn "
                 else if (the6thNumber == 1)
                     str += " Mốt Nghìn "
@@ -97,12 +97,15 @@
             case 1 :
                 if (the9thNumber == 0)
                     str += ""
-                else if (the8thNumber == 1 && the9thNumber == 1)
+                else if ((the8thNumber == 1 && the9thNumber == 1) || (the8thNumber == 0 && the9thNumber == 1))
                     str += " Một "
                 else if (the9thNumber == 1)
                     str += " Mốt "
                 else
                     str += readOneNumber(the9thNumber);
+                break;
+            default :
+                str += "Chỉ có thể đếm số có từ 1 đến 9 chữ số !";
         }
         return str;
     }
