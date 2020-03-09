@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
 </head>
 <body>
 <button onclick="readNumber()">Nhập số</button>
@@ -52,7 +53,9 @@
             case 9 :
                 str += readOneNumber(firstNumber) + " Trăm ";
             case 8 :
-                if (secondNumber == 0)
+                if (secondNumber == 0 && thirdNumber == 0)
+                    str += ""
+                else if (secondNumber == 0)
                     str += " Linh "
                 else if (secondNumber == 1)
                     str += " Mười "
@@ -68,16 +71,23 @@
                 else
                     str += readOneNumber(thirdNumber) + " Triệu ";
             case 6 :
-                str += readOneNumber(the4thNumber) + " Trăm ";
+                if (the4thNumber == 0 && the5thNumber == 0 && the6thNumber ==0)
+                    str += ""
+                else
+                    str += readOneNumber(the4thNumber) + " Trăm ";
             case 5 :
-                if (the5thNumber == 0)
+                if ( the5thNumber == 0 && the6thNumber == 0)
+                    str += ""
+                else if (the5thNumber == 0)
                     str += " Linh "
                 else if (the5thNumber == 1)
                     str += " Mười "
                 else
                     str += readOneNumber(the5thNumber) + " Mươi ";
             case 4 :
-                if (the6thNumber == 0)
+                if (the4thNumber == 0 && the5thNumber == 0 && the6thNumber == 0)
+                    str += ""
+                else if (the6thNumber == 0)
                     str += " Nghìn "
                 else if ((the5thNumber == 1 && the6thNumber == 1) || (the5thNumber == 0 && the6thNumber == 1))
                     str += " Một Nghìn "
@@ -86,9 +96,14 @@
                 else
                     str += readOneNumber(the6thNumber) + " Nghìn ";
             case 3 :
-                str += readOneNumber(the7thNumber) + " Trăm ";
+                if (the7thNumber == 0 && the8thNumber == 0 && the9thNumber == 0)
+                    str += ""
+                else
+                    str += readOneNumber(the7thNumber) + " Trăm ";
             case 2 :
-                if (the8thNumber == 0)
+                if (the7thNumber == 0 && the8thNumber == 0 && the9thNumber == 0)
+                    str += ""
+                else if (the8thNumber == 0)
                     str += " Linh "
                 else if (the8thNumber == 1)
                     str += " Mười "
