@@ -37,19 +37,21 @@
 
         }
 
-        function doc3So()//Đọc số có 3 chữ số VD: 123
+        function doc3So(n)//Đọc .số có 3 chữ số VD: 123
         {
             let tram = Math.floor(n / 100); //Math.round():làm tròn, Math.floor(): số sàn, Math.ceil(): số trần
             let chuc = Math.floor(n / 10) % 10;// 123 / 10 = 12 % 10 =
             let donVi = n % 10;
             let str = "";
             str += doc1So(tram) + "tram";
-                if (chuc==0)
-                    str += "linh";
-                else
-                     str += doc1So(chuc) + "muoi";
+            if (chuc == 0)
+                str += "linh"
+            else if (chuc==1)
+                str += "muoi"
+            else
+                str += doc1So(chuc) + "muoi";
             str += doc1So(donVi);
-
+            return str;
         }
 
         function docSo() {
@@ -60,6 +62,7 @@
 
 
         }
+
     </script>
 </head>
 <body>
