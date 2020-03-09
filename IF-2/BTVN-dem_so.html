@@ -35,6 +35,7 @@
                 return "Chín";
         }
     }
+
     function readNineNumber(n) {
         let firstNumber = Math.floor(eval(n / 100000000));
         let secondNumber = Math.floor((eval(n / 10000000) % 10));
@@ -58,7 +59,12 @@
                 else
                     str += readOneNumber(secondNumber) + " Mươi ";
             case 7 :
-                str += readOneNumber(thirdNumber) + " Triệu ";
+                if (thirdNumber == 0)
+                    str += ""
+                else if (thirdNumber == 1)
+                    str += " Mốt Triệu "
+                else
+                    str += readOneNumber(thirdNumber) + " Triệu ";
             case 6 :
                 str += readOneNumber(the4thNumber) + " Trăm ";
             case 5 :
@@ -69,7 +75,12 @@
                 else
                     str += readOneNumber(the5thNumber) + " Mươi ";
             case 4 :
-                str += readOneNumber(the6thNumber) + " Nghìn ";
+                if (the6thNumber == 0)
+                    str += ""
+                else if (the6thNumber == 1)
+                    str += " Mốt Nghìn "
+                else
+                    str += readOneNumber(the6thNumber) + " Nghìn ";
             case 3 :
                 str += readOneNumber(the7thNumber) + " Trăm ";
             case 2 :
@@ -80,7 +91,12 @@
                 else
                     str += readOneNumber(the8thNumber) + " Mươi ";
             case 1 :
-                str += readOneNumber(the9thNumber);
+                if (the9thNumber == 0)
+                    str += ""
+                else if (the9thNumber == 1)
+                    str += " Mốt "
+                else
+                    str += readOneNumber(the9thNumber);
         }
         return str;
     }
