@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<input type="text" id="sohang1">
+<input type="text" id="sohang2"><br><br>
+<button onclick="calculate('+')">Addition(+)</button>
+<button onclick="calculate('-')">Subtraction(-)</button>
+<button onclick="calculate('x')">Multiplication(X)</button>
+<button onclick="calculate(':')">Division(/)</button>
+<div id="result"></div>
+<script>
+    function calculate(op) {
+        let so_hang1 = parseFloat(document.getElementById('sohang1').value);
+        let so_hang2 = parseFloat(document.getElementById('sohang2').value);
+        phepCong = so_hang1+so_hang2;
+        phepTru = so_hang1-so_hang2;
+        phepNhan = so_hang1*so_hang2;
+        phepChia = so_hang1/so_hang2;
+        if (op=='+') {
+            document.getElementById('result').innerHTML= "Result Addition: "+phepCong
+        }
+        else if (op=='-') {
+            document.getElementById('result').innerHTML= "Result Addition: "+phepTru
+        }
+        else if (op=='x') {
+            document.getElementById('result').innerHTML= "Result Addition: "+phepNhan
+        }
+        else {
+            document.getElementById('result').innerHTML= "Result Addition: "+phepChia
+        }
+    }
+
+</script>
+</body>
+
+<!--<button onclick="sum_()">Addition(+)</button>-->
+<!--<button onclick="sub_()">Subtraction(-)</button>-->
+<!--<button onclick="mul_()">Multiplication(X)</button>-->
+<!--<button onclick="divi_()">Division(/)</button><br><br>-->
+<!--<div id="result"></div>-->
+<!--</body>-->
+<!--<script>-->
+<!--    function sum_() {-->
+<!--        let so_hang1 = parseFloat(document.getElementById('sohang1').value);-->
+<!--        let so_hang2 = parseFloat(document.getElementById('sohang2').value);-->
+<!--        let phepCong =  so_hang1+so_hang2;-->
+<!--        document.getElementById('result').innerHTML= "Result Addition: "+phepCong;-->
+<!--    }-->
+<!--    function sub_() {-->
+<!--        let so_hang1 = parseFloat(document.getElementById('sohang1').value);-->
+<!--        let so_hang2 = parseFloat(document.getElementById('sohang2').value);-->
+<!--         phepTru= so_hang1-so_hang2;-->
+<!--        document.getElementById('result').innerHTML="Result Subtraction: "+phepTru;-->
+<!--    }-->
+<!--    function mul_() {-->
+<!--        let so_hang1 = parseFloat(document.getElementById('sohang1').value);-->
+<!--        let so_hang2 = parseFloat(document.getElementById('sohang2').value);-->
+<!--        phepNhan = so_hang1*so_hang2;-->
+<!--        document.getElementById('result').innerHTML="Result Multiplication: "+phepNhan-->
+<!--    }-->
+<!--    function divi_() {-->
+<!--        let so_hang1 = parseFloat(document.getElementById('sohang1').value);-->
+<!--        let so_hang2 = parseFloat(document.getElementById('sohang2').value);-->
+<!--        phepChia = so_hang1/so_hang2;-->
+<!--        document.getElementById('result').innerHTML="Result Division: "+phepChia-->
+<!--    }-->
+<!--</script>-->
+</html>

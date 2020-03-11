@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function helloSomeone() {
+            let fullname = prompt('Nhập họ và tên:');
+            document.write("Xin chào " + fullname);
+        }
+        function calSum() {
+            let x = prompt("x = ");
+            x = Number.parseFloat(x);
+            let y = prompt("y = ");
+            y = Number.parseFloat(y);
+            document.write("x . y = " + (x * y));
+        }
+
+    </script>
+</head>
+<body onload="alert('Trang đã được tải xong!')">
+
+<button onclick="helloSomeone()">Nhập họ tên</button>
+<button onclick="confirm('Bạn có thực sự muốn đóng cửa sổ này?')">Đóng</button>
+<button onclick="calSum()">Tính tổng</button>
+</body>
+</html>

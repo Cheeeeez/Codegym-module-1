@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+    div {
+        margin-left: 30px;
+    }
+    th {
+        width: 200px;
+    }
+</style>
+</head>
+<body>
+<table style="text-align: center">
+    <tr>
+        <th>Amount</th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+    </tr>
+    <tr>
+        <td><input type="text" id="amount"></td>
+        <td>
+            <select id="from" style="width:100px">
+                <option value="VN" id="vn1">VietNam</option>
+                <option value="USD" id="us1">USD</option>
+            </select>
+        </td>
+        <td>
+            <select id="to" style="width: 100px">
+                <option value="USD" id="us2">USD</option>
+                <option value="VN" id="vn2">VietNam</option>
+            </select>
+        </td>
+        <td>
+            <button onclick="convertCurrency()">Convert</button>
+        </td>
+    </tr>
+</table><br>
+<div id="result" style="color: #0000ac"></div>
+<script>
+    function convertCurrency() {
+        let currencyAmount = parseInt(document.getElementById("amount").value);
+        let from = document.getElementById('from').value;
+        let to = document.getElementById('to').value;
+        if (from===to) {
+            alert(currencyAmount);
+        }
+        else {
+            if (from===document.getElementById('vn2').value) {
+                document.getElementById('result').innerHTML="Result :"+(currencyAmount/23000+"USD")
+            }
+            else {
+                document.getElementById('result').innerHTML="Result :"+(currencyAmount*23000+"VND")
+            }
+
+
+        }
+
+    }
+</script>
+</body>
+</html>
