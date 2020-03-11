@@ -9,9 +9,9 @@
 </body>
 <script>
     let trauDung, trauNam, trauGia;
-    for (trauDung = 1; trauDung <=  100; trauDung++)
-        for (trauNam = 1; trauNam <= 100; trauNam++)
-            for (trauGia = 1; trauGia <= 100; trauGia++)
+    for (trauDung = 0; trauDung <=  100; trauDung++)
+        for (trauNam = 0; trauNam <= 100; trauNam++)
+            for (trauGia = 0; trauGia <= 100; trauGia++)
                 if ((trauDung*5 + 3*trauNam + trauGia/3 == 100) && (trauGia%3==0) && (trauDung + trauNam + trauGia == 100)) {
                     console.log("So trau dung :" + trauDung);
                     console.log("So trau nam :" + trauNam);

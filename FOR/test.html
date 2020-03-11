@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem Tra</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+    Quýt ngon mỗi quả chia ba
+    Cam ngon mỗi quả chia ra làm mười
+    Mỗi người một miếng trăm người
+    Có mười bảy quả không nhiều đủ chia
+     */
+    let soCam, soQuyt;
+    for (soCam = 0; soCam <= 17; soCam++)
+        for (soQuyt = 0; soQuyt <= 17; soQuyt++)
+            if (soCam*10 + soQuyt*3 == 100 && (soCam + soQuyt == 17)) {
+                console.log(soQuyt);
+                console.log(soCam);
+            }
+</script>
+
+</html>
