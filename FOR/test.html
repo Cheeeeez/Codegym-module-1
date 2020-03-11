@@ -3,24 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <title>Kiem Tra</title>
+<!--    Quýt ngon mỗi quả chia ba-->
+<!--    Cam ngon mỗi quả chia ra làm mười-->
+<!--    Mỗi người một miếng trăm người-->
+<!--    Có mười bảy quả không nhiều đủ chia-->
+<!--    */-->
+<!--    // let soCam, soQuyt;-->
+<!--    // for (soCam = 0; soCam <= 17; soCam++)-->
+<!--    //     for (soQuyt = 0; soQuyt <= 17; soQuyt++)-->
+<!--    //         if (soCam * 10 + soQuyt * 3 == 100 && soCam + soQuyt == 17) {-->
+<!--    //             console.log("Số quýt là :" + soQuyt);-->
+<!--    //             console.log("Số cam là :" + soCam);-->
+<!--    //         }-->
+<!--    /*-->
+<!--    Nhập 2 giá trị tháng của cùng một năm. VD: 2/2020 và 10/2020.-->
+<!--    Tính tổng số ngày giữa 2 giá trị tháng năm-->
+<!--    2/ Nhập hai giá trị tháng năm. VD 2/2020 và 10/2021.-->
+<!--    Tính số ngày giữa hai tháng năm này-->
+<!--    3/ Nhập hai giá trị ngày tháng bất kỳ-->
+<!--    Tính số ngày giữa hai ngày tháng-->
+
+<style>
+    #result {
+        color: royalblue;
+    }
+</style>
+
 </head>
 <body>
-
+<label for="input_1">Từ tháng :</label><input id="input_1" type="text">
+<label for="input_2">Đến tháng :</label><input id="input_2" type="text">
+<label for="input_3">Năm :</label><input id="input_3" type="text">
+<button onclick="tinhSoNgay()">Tính ngày</button><br>
+<div id="result"></div>
 </body>
 <script>
-    /*
-    Quýt ngon mỗi quả chia ba
-    Cam ngon mỗi quả chia ra làm mười
-    Mỗi người một miếng trăm người
-    Có mười bảy quả không nhiều đủ chia
-     */
-    let soCam, soQuyt;
-    for (soCam = 0; soCam <= 17; soCam++)
-        for (soQuyt = 0; soQuyt <= 17; soQuyt++)
-            if (soCam * 10 + soQuyt * 3 == 100 && soCam + soQuyt == 17) {
-                console.log("Số quýt là :" + soQuyt);
-                console.log("Số cam là :" + soCam);
-            }
+   function tinhSoNgay() {
+       let thangBatDau = document.getElementById('input_1').value;
+       thangBatDau = Number.parseInt(thangBatDau);
+
+       let thangKetThuc = document.getElementById('input_2').value;
+       thangKetThuc = Number.parseInt(thangKetThuc);
+
+       let soNam = document.getElementById('input_3').value;
+       soNam = Number.parseInt(soNam);
+
+       let s = 0, i;
+       for (i = thangBatDau; i <= thangKetThuc; i++)
+           s += tinhNgay(i, soNam);
+       document.getElementById('result').innerHTML = "Từ tháng " + thangBatDau + " đến tháng " + thangKetThuc + " năm " + soNam + " có " + s + " ngày ";
+   }
+
+   function tinhNgay (thang, soNam) {
+       switch (thang) {
+           case 1 :
+           case 3 :
+           case 5 :
+           case 7 :
+           case 8 :
+           case 10 :
+           case 12 :
+               return 31;
+           case 4 :
+           case 6 :
+           case 9 :
+           case 11 :
+               return 30;
+           case 2 :
+               if (kiemTraNamNhuan(soNam))
+                   return 29;
+               else
+                   return 28;
+           default:
+               return "Không phải là tháng hợp lệ!";
+
+       }
+
+   }
+   function kiemTraNamNhuan(soNam) {
+       return (soNam % 400 === 0) || (soNam % 4 === 0) && (soNam % 100 !== 0);
+
+   }
 </script>
+
 
 </html>
