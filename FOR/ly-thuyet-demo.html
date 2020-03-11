@@ -20,11 +20,12 @@
     // Tính tổng các giá trị chẵn từ m đến n
     // Tính tổng các giá trị các số chính phương từ m đến n
     // Tính tổng các giá trị các số nguyên tố từ m đến n
-    function kiemTraChinhPhuong(n) {
-        // Một số là số chính phương nếu giá trị căn bậc 2 của nó là số nguyên
-        return Number.isInteger(Math.sqrt(n));
+    // function kiemTraChinhPhuong(n) {
+    //     // Một số là số chính phương nếu giá trị căn bậc 2 của nó là số nguyên
+    //     return Number.isInteger(Math.sqrt(n));
 
-    }
+
+    // }
     function calSum() {
         let m = document.getElementById('m');
         m = Number.parseInt(m.value);
@@ -35,7 +36,7 @@
         let s = 0, i;
         for (i = m; i <= n ; i++)
             //if (i % 2 == 0)
-            if(kiemTraChinhPhuong(i))
+            // if(kiemTraChinhPhuong(i))
             s += i;
         document.getElementById('sum').innerHTML = s;
 

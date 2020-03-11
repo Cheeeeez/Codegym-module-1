@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>document</title>
+</head>
+<body>
+<div>
+    <p>Nhập m : <input type="text" id="m" value="0" onkeyup="calSum()"></p>
+    <p>Nhập n : <input type="text" id="n" value="0" onkeyup="calSum()"></p>
+    <p>Tổng là : <span id="sum">0</span></p>
+</div>
+</body>
+<script>
+    function kiemTraNguyenTo(n) {
+        let flag = true;
+        if (n < 2) {
+            flag = false;
+        } else if (n == 2) {
+            flag = true;
+        } else if (n % 2 == 0) {
+            flag = false;
+        } else {
+            for (let a = 3; a < n-1; a += 2) {
+                if (n % a == 0) {
+                    flag = false;
+                    break;
+                }
+            }
+        }
+        if (flag == true) {
+            return n;
+        }
+    }
+    function calSum() {
+        let m = document.getElementById('m');
+        m = Number.parseInt(m.value);
+
+        let n = document.getElementById('n');
+        n = Number.parseInt(n.value);
+
+        let s = 0, i;
+        for (i = m; i <= n; i++)
+            if (kiemTraNguyenTo(i))
+                s += i;
+        document.getElementById('sum').innerHTML = s;
+    }
+
+</script>
+</html>
