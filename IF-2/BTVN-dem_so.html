@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+<button onclick="readNumber()">Nhập số</button>
+</body>
+<script>
+    function readOneNumber(n) {
+        switch (n) {
+            case 0 :
+                return "Không";
+            case 1 :
+                return "Một";
+            case 2 :
+                return "Hai";
+            case 3 :
+                return "Ba";
+            case 4 :
+                return "Bốn";
+            case 5 :
+                return "Năm";
+            case 6 :
+                return "Sáu";
+            case 7 :
+                return "Bảy";
+            case 8 :
+                return "Tám";
+            case 9 :
+                return "Chín";
+        }
+    }
+
+    function readNineNumber(n) {
+        let firstNumber = Math.floor(eval(n / 100000000));
+        let secondNumber = Math.floor((eval(n / 10000000) % 10));
+        let thirdNumber = Math.floor((eval(n / 1000000) % 10));
+        let the4thNumber = Math.floor((eval(n / 100000) % 10));
+        let the5thNumber = Math.floor((eval(n / 10000) % 10));
+        let the6thNumber = Math.floor((eval(n / 1000) % 10));
+        let the7thNumber = Math.floor((eval(n / 100) % 10));
+        let the8thNumber = Math.floor((eval(n / 10) % 10));
+        let the9thNumber = eval(n % 10);
+        let lengthOfNumber = n.length;
+        let str = "";
+        switch (lengthOfNumber) {
+            case 9 :
+                str += readOneNumber(firstNumber) + " Trăm ";
+            case 8 :
+                if (secondNumber == 0 && thirdNumber == 0)
+                    str += ""
+                else if (secondNumber == 0)
+                    str += " Linh "
+                else if (secondNumber == 1)
+                    str += " Mười "
+                else
+                    str += readOneNumber(secondNumber) + " Mươi ";
+            case 7 :
+                if (thirdNumber == 0)
+                    str += " Triệu "
+                else if ((secondNumber == 1 && thirdNumber == 1) || (secondNumber == 0 && thirdNumber == 1))
+                    str += " Một Triệu "
+                else if (thirdNumber == 1)
+                    str += " Mốt Triệu "
+                else
+                    str += readOneNumber(thirdNumber) + " Triệu ";
+            case 6 :
+                if (the4thNumber == 0 && the5thNumber == 0 && the6thNumber ==0)
+                    str += ""
+                else
+                    str += readOneNumber(the4thNumber) + " Trăm ";
+            case 5 :
+                if ( the5thNumber == 0 && the6thNumber == 0)
+                    str += ""
+                else if (the5thNumber == 0)
+                    str += " Linh "
+                else if (the5thNumber == 1)
+                    str += " Mười "
+                else
+                    str += readOneNumber(the5thNumber) + " Mươi ";
+            case 4 :
+                if (the4thNumber == 0 && the5thNumber == 0 && the6thNumber == 0)
+                    str += ""
+                else if (the6thNumber == 0)
+                    str += " Nghìn "
+                else if ((the5thNumber == 1 && the6thNumber == 1) || (the5thNumber == 0 && the6thNumber == 1))
+                    str += " Một Nghìn "
+                else if (the6thNumber == 1)
+                    str += " Mốt Nghìn "
+                else
+                    str += readOneNumber(the6thNumber) + " Nghìn ";
+            case 3 :
+                if (the7thNumber == 0 && the8thNumber == 0 && the9thNumber == 0)
+                    str += ""
+                else
+                    str += readOneNumber(the7thNumber) + " Trăm ";
+            case 2 :
+                if (the7thNumber == 0 && the8thNumber == 0 && the9thNumber == 0 || (the8thNumber == 0 && the9thNumber == 0))
+                    str += ""
+                else if (the8thNumber == 0)
+                    str += " Linh "
+                else if (the8thNumber == 1)
+                    str += " Mười "
+                else
+                    str += readOneNumber(the8thNumber) + " Mươi ";
+            case 1 :
+                if (the9thNumber == 0)
+                    str += ""
+                else if ((the8thNumber == 1 && the9thNumber == 1) || (the8thNumber == 0 && the9thNumber == 1))
+                    str += " Một "
+                else if (the9thNumber == 1)
+                    str += " Mốt "
+                else
+                    str += readOneNumber(the9thNumber);
+                break;
+            default :
+                str += "Chỉ có thể đếm số có từ 1 đến 9 chữ số !";
+        }
+        return str;
+    }
+
+    function readNumber() {
+        let n;
+        n = prompt("Nhập một số có tối đa 9 chữ số :");
+        alert(readNineNumber(n));
+    }
+</script>
+</html>

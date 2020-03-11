@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            text-align: center;
+            font-size: 30px;
+            background-color: cadetblue;
+            width: 60%;
+            margin: auto;
+        }
+        h2 {
+            color: green;
+        }
+        p#result {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h2>KIỂM TRA BMI</h2>
+    <input type="text" name="weight" , id="weight" placeholder="Cân nặng">
+    <label for="weight"><b>(kg)</b></label><br>
+    <input type="text" name="height" , id="height" placeholder="Chiều cao">
+    <label for="height"><b>(cm)</b></label><br><br>
+    <button onclick="checkBMI()">Kiểm tra</button>
+    <br>
+    <p id="result"></p>
+</div>
+</body>
+<script>
+    function checkBMI() {
+        let weight = parseFloat(document.getElementById('weight').value);
+        let height = parseFloat(document.getElementById('height').value);
+        bmi = weight / (height / 100) **2 ;
+        if (bmi < 18.5) {
+            document.getElementById('result').innerHTML = "Underweight";
+        } else if (bmi >= 18.5 && bmi < 25) {
+            document.getElementById('result').innerHTML = "Normal";
+        } else if (bmi >= 25 && bmi < 30) {
+            document.getElementById('result').innerHTML = "Overweight";
+        } else {
+            document.getElementById('result').innerHTML = "Obese";
+        }
+    }
+</script>
+</html>

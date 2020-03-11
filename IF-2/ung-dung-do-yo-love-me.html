@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Do you love me</title>
+    <style>
+        .container {
+            width: 800px;
+            height: 500px;
+            background-color: aquamarine;
+            position: relative;
+            margin: auto;
+        }
+        .main {
+            width: 70%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #btn-no {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="main">
+        <h2>Do you love me?</h2>
+        <button id="btn-yes" onclick="yesClick()">YES</button>
+        <button id="btn-no" onmouseover="setRandomPosition()">NO</button>
+    </div>
+</div>
+
+
+</body>
+<script>
+    function yesClick() {
+        alert(" <3 ");
+    }
+    function setRandomPosition() {
+        document.getElementById('btn-no').style.top = Math.floor(Math.random()*500) + "px";
+        document.getElementById('btn-no').style.right = Math.floor(Math.random()*800) + "px";
+    }
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="script.js"></script>
+</head>
+<body>
+<table>
+    <tr>
+        <td colspan="4"><input type="text" id="input" style="text-align: right"></td>
+    </tr>
+    <tr>
+        <td><button value="(" onclick="clickButton(this.value)">(</button></td>
+        <td><button value=")" onclick="clickButton(this.value)">)</button></td>
+        <td><button value="C" onclick="clickButton(this.value)">C</button></td>
+        <td><button value="AC" onclick="clearAll()">AC</button></td>
+    </tr>
+    <tr>
+        <td><button value="7" onclick="clickButton(this.value)">7</button></td>
+        <td><button value="8" onclick="clickButton(this.value)">8</button></td>
+        <td><button value="9" onclick="clickButton(this.value)">9</button></td>
+        <td><button value="/" onclick="clickButton(this.value)">/</button></td>
+    </tr>
+    <tr>
+        <td><button value="4" onclick="clickButton(this.value)">4</button></td>
+        <td><button value="5" onclick="clickButton(this.value)">5</button></td>
+        <td><button value="6" onclick="clickButton(this.value)">6</button></td>
+        <td><button value="*" onclick="clickButton(this.value)">*</button></td>
+    </tr>
+    <tr>
+        <td><button value="1" onclick="clickButton(this.value)">1</button></td>
+        <td><button value="2" onclick="clickButton(this.value)">2</button></td>
+        <td><button value="3" onclick="clickButton(this.value)">3</button></td>
+        <td><button value="-" onclick="clickButton(this.value)">-</button></td>
+    </tr>
+    <tr>
+        <td><button value="0" onclick="clickButton(this.value)">0</button></td>
+        <td><button value="." onclick="clickButton(this.value)">.</button></td>
+        <td><button value="=" onclick="calculate()">=</button></td>
+        <td><button value="+" onclick="clickButton(this.value)">+</button></td>
+    </tr>
+</table>
+
+
+</body>
+
+</html>
