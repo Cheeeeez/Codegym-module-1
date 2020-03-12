@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script>
+    /* Nhập hai số nguyên dương a và b. Tính USCLN(a)*/
+    b
+
+    /*
+       a = 8
+       b = 12
+
+       a = 8 = 2*2*2
+       b = 12 = 2*2*3
+       => CLN (a,b) = 2*2 = 4US
+       Thuật toán Euclid để tìm USCLN của hai số a và b:
+       B1: Nếu a = b thì USCLN (a,b) = a
+       B2: +) Nếu a < b thì b = b - a
+           +) Nếu a > b thì a = a - b
+           Quay lại B1.
+
+       VD: a = 8, b = 12
+           Vòng 1: a = 8, b = 12 - 8 = 4
+           Vòng 2: a = 8 - 4 = 4, b = 4
+           Vòng 3: USCLN = 4. Kết thúc
+
+     */
+    function USCLN(a, b) {
+        while (a != b)
+            if (a > b)
+                a -= b;
+            else
+                b -= a;
+        return a;
+    }
+
+    function timUSCLN() {
+        let a = +prompt("Nhập số thứ nhất :");
+        let b = +prompt("Nhập số thứ hai :");
+        alert("USCLN của " + a + "," + b + " = " + USCLN(a, b));
+
+    }
+
+
+</script>
+<body>
+<button onclick="timUSCLN()">Tìm USCLN</button>
+</body>
+</html>

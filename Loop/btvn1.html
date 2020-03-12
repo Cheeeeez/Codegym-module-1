@@ -15,30 +15,13 @@
     // Số nguyên tố là số chỉ chia hết cho 1 và chính nó
     // Thử từ 2 đến n-1 (đến căn bậc 2 của n) nếu nó chia hết cho 1 số nào đó thì n không phải là số nguyên tố
     function kiemTraNguyenTo(n) {
-        let flag = true;
-        if (n < 2) {
-            flag = false;
-        } else if (n == 2) {
-            flag = true;
-        } else if (n % 2 == 0) {
-            flag = false;
-        } else {
-            for (let a = 3; a < n-1; a += 2) {
-                if (n % a == 0) {
-                    flag = false;
-                    break;
-                }
-            }
-        }
-        if (flag == true) {
-            return n;
-        }
-    //     let i;
-    //     for (i = 2; i <= Math.sqrt(n); i++)
-    //         if (n % i == 0)
-    //             return false;
-    //     return true;
+        let i;
+        for (i = 2; i <= Math.sqrt(n); i++)
+            if (n % i === 0)
+                return false;
+        return true;
     }
+
     function calSum() {
         let m = document.getElementById('m');
         m = Number.parseInt(m.value);
@@ -46,9 +29,10 @@
         let n = document.getElementById('n');
         n = Number.parseInt(n.value);
 
+
         let s = 0, i;
         for (i = m; i <= n; i++)
-            if (kiemTraNguyenTo(i))
+            if (kiemTraNguyenTo(i) && i >= 2)
                 s += i;
         document.getElementById('sum').innerHTML = s;
     }

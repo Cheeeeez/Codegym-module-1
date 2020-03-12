@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><label for="month_1">Từ tháng :</label></td>
+        <td><input id="month_1" type="text"></td>
+        <td><label for="year_1">Năm :</label><input id="year_1" type="text"></td>
+    </tr>
+    <tr>
+        <td><label for="month_2">Đến tháng :</label></td>
+        <td><input id="month_2" type="text"></td>
+        <td><label for="year_2">Năm :</label><input id="year_2" type="text"></td>
+    </tr>
+</table>
+<button onclick="countDays()">Tính ngày</button>
+<br>
+<div id="result"></div>
+</body>
+<script>
+    function countDays() {
+        let month_1 = parseInt(document.getElementById('month_1').value);
+        let month_2 = parseInt(document.getElementById('month_2').value);
+        let year_1 = parseInt(document.getElementById('year_1').value);
+        let year_2 = parseInt(document.getElementById('year_2').value);
+
+        let s_1 = 0, s_2 = 0, x, y;
+        for (x = month_1; x <= 12; x++)
+            s_1 += countDaysInMonth(month_1, year_1);
+        alert(s_1);
+        for (y = 1; y <= month_2; y++)
+            s_2 += countDaysInMonth(month_2, year_2);
+        alert(s_2);
+
+        document.getElementById('result').innerHTML = s_1 + s_2;
+    }
+
+    function countDaysInMonth(month, year) {
+        switch (month) {
+            case 1 :
+            case 3 :
+            case 5 :
+            case 7 :
+            case 8 :
+            case 10 :
+            case 12 :
+                return 31;
+            case 4 :
+            case 6 :
+            case 9 :
+            case 11 :
+                return 30;
+            case 2 :
+                if (isLeapYear(year))
+                    return 29;
+                else
+                    return 28;
+            default:
+                return "Không phải là tháng hợp lệ!";
+
+        }
+
+    }
+
+    function isLeapYear(year) {
+        return (year % 400 === 0) || (year % 4 === 0) && (year % 100 !== 0);
+
+    }
+</script>
+</html>
