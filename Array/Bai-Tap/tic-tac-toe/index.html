@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TicTacToe</title>
+</head>
+<body>
+<h1>Tic Tac Toe</h1>
+<div id="caro"></div>
+<input type="button" value="Player 1" onclick="changeValueX()">
+<input type="button" value="Player 2" onclick="changeValueO()">
+</body>
+<script>
+    let b = document.getElementById('caro');
+    let table = "<table border='2' width='300' height='300' style='border-collapse: collapse'>";
+    let board = [];
+    for (let i = 0; i < 3; i++) {
+        board[i] = [" ", " ", " "];
+    }
+    for (let i = 0; i < 3; i++) {
+        table += "<tr>";
+        for (let j = 0; j < 3; j++) {
+            table += "<td width='100' height='100'>" + board[i][j] + "</td>";
+        }
+        table += "</tr>";
+    }
+    table += "</table>";
+    b.innerHTML = table;
+
+    function changeValueX() {
+        let positionX = prompt("X: ");
+        let positionY = prompt("Y: ");
+        let winComboX = ["X", "X", "X"];
+        let table = "<table border='2' width='300' height='300' style='border-collapse: collapse'>";
+        board[positionX][positionY] = "X"; // Đổi giá trị trong mảng
+        for (let i = 0; i < 3; i++) {
+            table += "<tr>";
+            for (let j = 0; j < 3; j++) {
+                table += "<td width='100' height='100' align='center'>" + board[i][j] + "</td>";
+            }
+            table += "</tr>";
+        }
+        table += "</table>";
+        b.innerHTML = table;
+
+        // Condition to win of player 1
+        // row
+        let flag = true;
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (board[i][j] === winComboX[j]) {
+                    flag = true;
+                } else {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag === true) {
+                alert("Player 1 win !");
+            }
+        }
+
+        // column
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (board[j][i] === winComboX[j]) {
+                    flag = true;
+                } else {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag === true) {
+                alert("Player 1 win !");
+            }
+        }
+
+        //diagonal line
+        if (board[0][0] === winComboX[0] && board[1][1] === winComboX[1] && board[2][2] === winComboX[2]) {
+            alert("Player 1 win !");
+        }
+
+        if (board[0][2] === winComboX[0] && board[1][1] === winComboX[1] && board[2][0] === winComboX[2]) {
+            alert("Player 1 win !");
+        }
+    }
+
+    function changeValueO() {
+        let positionX2 = prompt("X: ");
+        let positionY2 = prompt("Y: ");
+        let winComboY = ["O", "O", "O"];
+        let table = "<table border='2' width='300' height='300' style='border-collapse: collapse'>";
+        board[positionX2][positionY2] = "O";
+        for (let i = 0; i < 3; i++) {
+            table += "<tr>";
+            for (let j = 0; j < 3; j++) {
+                table += "<td width='100' height='100' align='center'>" + board[i][j] + "</td>";
+            }
+            table += "</tr>";
+        }
+        table += "</table>";
+        b.innerHTML = table;
+
+        // condition to win of player 2
+        // row
+        let flag = true;
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (board[i][j] === winComboY[j]) {
+                    flag = true;
+                } else {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag === true) {
+                alert("Player 2 win !");
+            }
+        }
+
+        // column
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (board[j][i] === winComboY[j]) {
+                    flag = true;
+                } else {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag === true) {
+                alert("Player 2 win !");
+            }
+        }
+
+        //diagonal line
+        if (board[0][0] === winComboY[0] && board[1][1] === winComboY[1] && board[2][2] === winComboY[2]) {
+            alert("Player 2 win !");
+        }
+
+        if (board[0][2] === winComboY[0] && board[1][1] === winComboY[1] && board[2][0] === winComboY[2]) {
+            alert("Player 2 win !");
+        }
+    }
+
+</script>
+</html>
