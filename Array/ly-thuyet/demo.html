@@ -35,7 +35,6 @@
     let result = document.getElementById('output');
     let result_2 = document.getElementById('array_value');
     let myArray = [];
-    let newArray = [];
 
     function initArray() {
         let content = parseInt(document.getElementById('input').value);
@@ -54,7 +53,7 @@
             sum += myArray[i];
         result.innerHTML = sum;
     }
-    
+
     function calSumEven() {
         let sum = 0;
         for (let i = 0; i < myArray.length; i++)
@@ -62,7 +61,7 @@
                 sum += myArray[i];
         result.innerHTML = sum;
     }
-    
+
     function calSumOdd() {
         let sum = 0;
         for (let i = 0; i < myArray.length; i++)
