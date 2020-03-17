@@ -6,14 +6,15 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-<style>
-    div {
-        margin-left: 30px;
-    }
-    th {
-        width: 200px;
-    }
-</style>
+    <style>
+        div {
+            margin-left: 30px;
+        }
+
+        th {
+            width: 200px;
+        }
+    </style>
 </head>
 <body>
 <table style="text-align: center">
@@ -40,22 +41,21 @@
             <button onclick="convertCurrency()">Convert</button>
         </td>
     </tr>
-</table><br>
+</table>
+<br>
 <div id="result" style="color: #0000ac"></div>
 <script>
     function convertCurrency() {
         let currencyAmount = parseInt(document.getElementById("amount").value);
         let from = document.getElementById('from').value;
         let to = document.getElementById('to').value;
-        if (from===to) {
-            alert(currencyAmount);
-        }
-        else {
-            if (from===document.getElementById('vn2').value) {
-                document.getElementById('result').innerHTML="Result :"+(currencyAmount/23000+"USD")
-            }
-            else {
-                document.getElementById('result').innerHTML="Result :"+(currencyAmount*23000+"VND")
+        if (from === to) {
+            document.getElementById('result').innerHTML = currencyAmount;
+        } else {
+            if (from === document.getElementById('vn2').value) {
+                document.getElementById('result').innerHTML = "Result :" + (currencyAmount / 23000 + "USD")
+            } else {
+                document.getElementById('result').innerHTML = "Result :" + (currencyAmount * 23000 + "VND")
             }
 
 
