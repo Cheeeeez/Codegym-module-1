@@ -29,15 +29,24 @@
     <div class="main">
         <h2>Do you love me?</h2>
         <button id="btn-yes" onclick="yesClick()">YES</button>&emsp;
-        <button id="btn-no" onmouseover="setRandomPosition()">NO</button>
+        <button id="btn-no" onclick="question()">NO</button>
     </div>
 </div>
 
 
 </body>
 <script>
+    function question() {
+        confirm("Are you sure ?");
+        return noClick();
+    }
+
+    function noClick() {
+        alert(" Chào vợ yêu :p");
+    }
+
     function yesClick() {
-        alert(" <3 ");
+        alert(" Chào vợ tương lai :P ");
     }
     function setRandomPosition() {
         document.getElementById('btn-no').style.top = Math.floor(Math.random()*500) + "px";
