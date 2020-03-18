@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả hình chữ nhật</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1368px" height="400px" style="border: 1px solid white"></canvas>
+<script>
+    function Rectangle(x, y, width, height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+
+        this.getArea = function () {
+            return this.width * this.height;
+        };
+
+        this.getPerimeter = function () {
+            return (this.width + this.height) * 2;
+        };
+
+        this.changeWidth = function (width) {
+            this.width = width;
+            return this.width;
+        };
+
+        this.changeHeight = function (height) {
+            this.height = height;
+            return this.height;
+        };
+
+        this.createRectangle = function () {
+            let ctx = document.getElementById('myCanvas').getContext("2d");
+            let rectangle = new Rectangle(x, y, width, height);
+            ctx.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+        }
+    }
+
+    let rectangle = new Rectangle(100, 100, 400, 200);
+    rectangle.createRectangle();
+    document.write("Area : " + rectangle.getArea() + " ; " +"Perimeter : " + rectangle.getPerimeter() + "<br>");
+
+    rectangle.changeWidth(800);
+    rectangle.changeHeight(400);
+    document.write("After change => Area : " + rectangle.getArea() + " ; " +"Perimeter : " + rectangle.getPerimeter());
+</script>
+</body>
+</html>
