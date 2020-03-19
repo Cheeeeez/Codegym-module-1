@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+        1/ Cho biết hôm nay là thứ mấy ( Bằng tiếng Việt )
+        2/ Nhập một xâu ký tự và chuẩn hóa xâu:
+        - Không có ký tự trắng ở đầu và cuối xâu
+        - Không có nhiều dáu cách liên tiếp nhau
+        - Chỉ đầu mỗi từ được viết hoa
+        VD: "   NguyễN vĂn AN   "   => "Nguyễn Văn An"
+     */
+
+    function normalizeString(str) {
+        let a = str.split(" ");
+        // Loại bỏ các dấu cách thừa
+        let b = new Array();
+
+        for (let i = 0; i < a.length; i++)
+            if (a[i].length > 0)
+                b.push(a[i]);
+        console.log(b);
+
+        // Chuẩn hóa chữ hoa - chữ thường
+        let tmp = (b.join(" "));
+        console.log(tmp);
+        let tmpUpper = tmp.toUpperCase();
+        console.log(tmpUpper);
+
+        //Viết hoa chữ cái đầu
+        tmp = tmp.toLowerCase();
+        console.log(tmp);
+        tmp = tmpUpper.charAt(0) + tmp.substring(1, tmp.length);
+        console.log(tmp);
+
+        // Viết hoa các đầu từ
+        for (let i = 1; i < tmp.length; i++)
+            if (tmp.charAt(i) === ' ')
+                tmp = tmp.substring(0, i + 1) + tmpUpper.charAt(i + 1) + tmp.substring(i + 2, tmp.length);
+        console.log(tmp);
+        return tmp;
+
+    }
+
+    alert(normalizeString("   NguyễN vĂn AN   "));
+
+    function getDay() {
+        const thu = ["Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ 5", "Thứ 6", "Thứ 7"];
+        let d = new Date;
+        let dayIndex = d.getDay();
+
+        return thu[dayIndex];
+    }
+
+    let d1 = new Date();
+
+    document.write("Hôm này là : " + getDay() + "<br>");
+
+    let d2 = new Date();
+
+    document.write("Thời gian thực hiện : " + (d2.getMilliseconds() - d1.getMilliseconds()));
+</script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #myForm {
+            display: none;
+        }
+
+        #listAllStudent {
+            border: none;
+            width: 50%;
+        }
+
+        tr, td {
+            height: 30px;
+        }
+
+        tr:nth-child(even){
+            background-color: #eeeeee;
+        }
+
+        thead {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+<h3>THÔNG TIN SINH VIÊN</h3>
+<form action="#" method="p" id="myForm">
+    <table>
+        <tr>
+            <td width="100">Họ</td>
+            <td><input type="text" name="fullname" class="addStudent" id="addStudent1"></td>
+        </tr>
+        <tr>
+            <td>Tên</td>
+            <td><input type="text" name="fullname" class="addStudent" id="addStudent2"></td>
+        </tr>
+        <tr>
+            <td>Ngày sinh</td>
+            <td><input type="date" name="DOB" class="addStudent" id="addStudent3"></td>
+        </tr>
+        <tr>
+            <td>Giới tính</td>
+            <td><input type="radio" name="sex" id="addStudent4"> Nam
+                <input type="radio" name="sex" id="addStudent5"> Nữ <br></td>
+        </tr>
+        <tr>
+            <td>Quê quán</td>
+            <td><select class="addStudent" id="addStudent6">
+                <option value="Hà Nội"> Hà Nội</option>
+                <option value="Hải Phòng"> Hải Phòng</option>
+                <option value="Nam Đinh"> Nam Định</option>
+                <option value="Bắc Ninh"> Bắc Ninh</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>Sở thích</td>
+            <td><input type="checkbox" name="hobby[]" value="1" id="addStudent7"> Thể thao
+                <input type="checkbox" name="hobby[]" value="2" id="addStudent8"> Du lịch
+                <input type="checkbox" name="hobby[]" value="4" id="addStudent9"> Phim ảnh
+            </td>
+        </tr>
+        <tr>
+            <td>Ảnh thẻ</td>
+            <td><input type="file" name="avatar"></td>
+        </tr>
+
+
+        <tr>
+            <td>Tên đăng nhập</td>
+            <td><input type="text" name="username" class="addStudent" id="addStudent10"></td>
+        </tr>
+        <tr>
+            <td>Mật khẩu</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+
+        <tr>
+            <td width="100">Mô tả thêm</td>
+            <td><textarea name="description">abc</textarea></td>
+        </tr>
+
+        <tr>
+            <td width="100"></td>
+            <td><input type="button" id="add" value="Cập nhập">
+                <input type="reset" value="Nhập lại">
+                <input type="button" value="Đóng" onclick="closeForm()">
+            </td>
+        </tr>
+    </table>
+</form>
+<h3>DANH SÁCH SINH VIÊN</h3>
+<button onclick="showForm()">Thêm sinh viên</button>
+<br>
+<table id="listAllStudent">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Mã SV</th>
+        <th>Họ tên</th>
+        <th>Ngày sinh</th>
+        <th>Quê quán</th>
+        <th>Tên đăng nhập</th>
+        <th>Thao tác</th>
+    </tr>
+    </thead>
+    <tbody id="studentList">
+
+    </tbody>
+</table>
+</body>
+<script>
+    function showForm(){
+        document.getElementById("myForm").style.display = "block";
+
+    }
+    function closeForm(){
+        document.getElementById("myForm").style.display = "none";
+
+    }
+    const MAX = 2;
+    var form = "";
+
+    main();
+
+    function Student(orderList, studentID, firstName, lastName, dateBirth, fromCountry, userName, editStudent, delStudent) {
+        this.orderList = orderList;
+        this.studentID = studentID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateBirth = dateBirth;
+        this.fromCountry = fromCountry;
+        this.userName = userName;
+        this.editStudent = editStudent;
+        this.delStudent = delStudent;
+
+        this.showList = function () {
+            form += "<tr id='studentRow'>";
+            form += "<td>";
+            form += this.orderList;
+            form += "</td>";
+            form += "<td>";
+            form += this.studentID;
+            form += "</td>";
+            form += "<td>";
+            form += this.lastName + " " + this.firstName;
+            form += "</td>";
+            form += "<td>";
+            form += this.dateBirth;
+            form += "</td>";
+            form += "<td>";
+            form += this.fromCountry;
+            form += "</td>";
+            form += "<td>";
+            form += this.userName;
+            form += "</td>";
+            form += "<td>";
+            form += "<input type ='button' value='Sửa' id='edit'" + this.editStudent + ">" + " | " + "<button type ='button' id='del'>" + this.delStudent + "</button>";
+            form += "</td>";
+            form += "</tr>";
+
+            document.getElementById("studentList").innerHTML = form;
+        }
+    }
+
+    function StudentList() {
+        this.studentList = new Array(MAX);
+        this.initStudentList = function () {
+            for (let i = 0; i < MAX; i++) {
+                let orderList = i + 1;
+                let studentID = "CG_" + (i + 1);
+                let firstName = Math.random().toString(36).substring(10);
+                let lastName = Math.random().toString(36).substring(5);
+                let dateBirth = Math.random().toString(8).substring(17) + "/" +
+                    Math.random().toString(8).substring(17) + "/" + Math.random().toString(8).substring(16);
+                let fromCountry = Math.random().toString(36).substring(5);
+                let userName = Math.random().toString(36).substring(4);
+                let editStudent = "";
+                let delStudent = "Xóa";
+
+                this.studentList[i] = new Student(orderList, studentID, firstName, lastName, dateBirth, fromCountry, userName, editStudent, delStudent);
+            }
+
+        };
+
+        this.showStudentList = function () {
+            for (let i = 0; i < MAX; i++) {
+                this.studentList[i].showList();
+            }
+        };
+
+        this.addStudent = function () {
+            let count = this.studentList.length;
+            let orderList = count + 1;
+            let studentID = "CG_" + (count + 1);
+            let firstName = document.getElementById("addStudent1").value;
+            let lastName = document.getElementById("addStudent2").value;
+            let dateBirth = document.getElementById("addStudent3").value;
+            let fromCountry = document.getElementById("addStudent6").value;
+            let userName = document.getElementById("addStudent10").value;
+            let editStudent = "";
+            let delStudent = "Xóa";
+
+            this.studentList[count] = new Student(orderList, studentID, firstName, lastName, dateBirth, fromCountry, userName, editStudent, delStudent);
+
+            this.studentList[count].showList();
+            console.log(this.studentList);
+        };
+
+        this.deleteStudent = function () {
+            let count = this.studentList.length;
+            let listTableRow = document.getElementsByClassName("studentRow");
+            delete listTableRow[count];
+            console.log(listTableRow);
+        };
+    }
+
+    function main() {
+        let stdList = new StudentList();
+        stdList.initStudentList();
+        stdList.showStudentList();
+        document.getElementById("add").onclick = function () {
+            stdList.addStudent();
+        };
+        document.getElementById("del").onclick = function () {
+            stdList.deleteStudent();
+        };
+    }
+</script>
+</html>
+© 2020 GitHub, Inc.
